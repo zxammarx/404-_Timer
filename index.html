@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fsociety Timer</title>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="icon.png">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="scanlines"></div>
+
+  <video autoplay muted loop id="bg-video">
+    <source src="mr.mp4" type="video/mp4">
+  </video>
+
+  <div class="container">
+    <div class="left">
+      <div class="saved-times" id="savedTimes"></div>
+      
+      <div class="daily-container">
+        <span class="total-label">DAILY_LOG</span>
+        <span id="dailyTotal">00:00:00</span>
+      </div>
+
+      <div class="total-container">
+        <span class="total-label">SYSTEM_TOTAL</span>
+        <span id="grandTotal">00:00:00</span>
+      </div>
+    </div>
+
+    <div class="center">
+      <div class="time-display" id="display">00:00:00</div>
+      <div class="status-indicator" id="statusIndicator">IDLE</div>
+    </div>
+
+    <div class="right">
+      <select id="fieldSelect"></select>
+
+      <div class="topic-controls">
+        <input type="text" id="newTopic" placeholder="> Input Protocol...">
+        <div class="btn-group">
+          <button id="addTopicBtn">INIT</button>
+          <button id="removeTopicBtn">PURGE</button>
+        </div>
+      </div>
+
+      <div class="main-btns">
+        <button id="startBtn">EXECUTE</button>
+        <button id="pauseBtn" class="pause-btn">SUSPEND</button>
+        <button id="stopBtn">HALT</button>
+        <button id="resetBtn">FLUSH</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-section">
+    <details open>
+      <summary>> ACCESS ANALYTICS DATA</summary>
+      <div class="chart-wrapper">
+        <div class="chart-controls">
+          <button id="prevMonthBtn">&lt;&lt;</button>
+          <span id="chartMonthLabel">LOADING...</span>
+          <button id="nextMonthBtn">&gt;&gt;</button>
+        </div>
+        <div class="canvas-container">
+          <canvas id="studyChart"></canvas>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
